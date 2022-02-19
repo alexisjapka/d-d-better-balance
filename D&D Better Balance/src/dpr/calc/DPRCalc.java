@@ -9,28 +9,26 @@ public class DPRCalc {
 	
 	public static void main(String[] args) {
 		
+		Character.playCharacter pc1 = new Character.playCharacter();
+		Character.playCharacter pc2 = new Character.playCharacter();
+		Character.playCharacter pc3 = new Character.playCharacter();
 		
-		PlayerCharacter pc1 = new PlayerCharacter();
 		samplePC1(pc1);
-		//pc1.changeName("Bob");
-		
-		PlayerCharacter pc2 = new PlayerCharacter();
-		samplePC2(pc2);
-		
-		PlayerCharacter pc3 = new PlayerCharacter();
-		samplePC3(pc3);
-		
 		pc1.display();
 		System.out.println();
+		
+		samplePC2(pc2);
 		pc2.display();
 		System.out.println();
+		
+		samplePC3(pc3);
 		pc3.display();
 		System.out.println();
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC1(PlayerCharacter sPC1) {
-		sPC1.changeName("John Doe");
+	private static void samplePC1(Character.playCharacter sPC1) {
+		sPC1.name = "John Doe";
 		sPC1.characterClass = "Fighter";
 		sPC1.attackBonus = 3;
 		sPC1.armorClass = 10;
@@ -45,8 +43,8 @@ public class DPRCalc {
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC2(PlayerCharacter sPC2) {
-		sPC2.changeName("Balthazar");
+	private static void samplePC2(Character.playCharacter sPC2) {
+		sPC2.name = "Balthazar";
 		sPC2.characterClass = "Warlock";
 		sPC2.attackBonus = 14;
 		sPC2.armorClass = 14;
@@ -61,7 +59,7 @@ public class DPRCalc {
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC3(PlayerCharacter sPC3) {
+	private static void samplePC3(Character.playCharacter sPC3) {
 		sPC3.name = "Martin";
 		sPC3.characterClass = "Rogue";
 		sPC3.attackBonus = 14;
@@ -75,5 +73,4 @@ public class DPRCalc {
 		sPC3.extraCritAttack = false;
 		sPC3.improvedCrit = false;
 	}
-	
 }
