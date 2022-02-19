@@ -9,9 +9,9 @@ public class DPRCalc {
 	
 	public static void main(String[] args) {
 		
-		Character.playCharacter pc1 = new Character.playCharacter();
-		Character.playCharacter pc2 = new Character.playCharacter();
-		Character.playCharacter pc3 = new Character.playCharacter();
+		Character.PC pc1 = new Character.PC();
+		Character.PC pc2 = new Character.PC();
+		Character.PC pc3 = new Character.PC();
 		
 		samplePC1(pc1);
 		pc1.display();
@@ -27,7 +27,7 @@ public class DPRCalc {
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC1(Character.playCharacter sPC1) {
+	private static void samplePC1(Character.PC sPC1) {
 		sPC1.name = "John Doe";
 		sPC1.characterClass = "Fighter";
 		sPC1.attackBonus = 3;
@@ -43,7 +43,7 @@ public class DPRCalc {
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC2(Character.playCharacter sPC2) {
+	private static void samplePC2(Character.PC sPC2) {
 		sPC2.name = "Balthazar";
 		sPC2.characterClass = "Warlock";
 		sPC2.attackBonus = 14;
@@ -59,7 +59,7 @@ public class DPRCalc {
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC3(Character.playCharacter sPC3) {
+	private static void samplePC3(Character.PC sPC3) {
 		sPC3.name = "Martin";
 		sPC3.characterClass = "Rogue";
 		sPC3.attackBonus = 14;

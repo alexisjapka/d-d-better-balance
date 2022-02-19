@@ -237,7 +237,7 @@ public class DPRgui {
 			public void actionPerformed(ActionEvent e) {
 				
 				//setting up the PlayerCharacter with input values
-				Character.playCharacter PC = new Character.playCharacter();
+				Character.PC PC = new Character.PC();
 				PC.name = textFieldName.getText();
 				PC.characterClass = textFieldClass.getText();
 				PC.armorClass = Double.parseDouble(textFieldPlayerAC.getText());

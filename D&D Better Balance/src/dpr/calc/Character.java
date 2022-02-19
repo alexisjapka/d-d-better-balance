@@ -6,7 +6,7 @@ import java.io.*;
 
 public final class Character {
 	
-	public static final class playCharacter {
+	public static final class PC {
 		
 		public String name = "Player Character";	//character name for reference
 		public String characterClass = "Fighter";	//character class for reference
