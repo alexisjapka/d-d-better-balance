@@ -4,16 +4,16 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-public class PlayerCharacter {
+public final class PlayerCharacter {
 	
 	public static String name = "Player Character";		//character name for reference
 	public static String characterClass = "Fighter";	//character class for reference
-	public static double attackBonus = 0;					//modifier to hit
-	public static double armorClass = 10;					//armor class of character
+	public static double attackBonus = 0;				//modifier to hit
+	public static double armorClass = 10;				//armor class of character
 	public static double targetArmorClass = 10;			//armor class of target that is being hit
 	public static double avgDiceDmg = 3;				//average value of the damage dice without modifiers
-	public static double dmgModifier = 0;					//modifier to each damage roll
-	public static double attacksPerRound = 1;				//attacks per round
+	public static double dmgModifier = 0;				//modifier to each damage roll
+	public static double attacksPerRound = 1;			//attacks per round
 	public static double sneakAvgAttackDmg = 0;			//optional sneak attack
 	public static double extraCritDmg = 0;				//optional extra crit damage
 	public static boolean extraCritAttack = false;		//optional extra crit attack
@@ -22,7 +22,7 @@ public class PlayerCharacter {
 	
 	//Player character object
 	public static void main(String[] args) {
-		
+
 		//check for improved critical
 		if(improvedCrit == true)
 			critChance = 0.1;
@@ -34,6 +34,11 @@ public class PlayerCharacter {
 		System.out.println("Chance to Hit with Advantage: "+advantageChanceToHit()+"%");
 		System.out.println("Damage Per Round: "+DPR());
 		
+	}
+	
+	public static String changeName(String name) {
+		String name2 = "Testing";
+		return name2;
 	}
 	
 	//chance to hit the target AC
