@@ -11,7 +11,7 @@ public class DPRCalc {
 		
 		Character.PC pc1 = new Character.PC();
 		Character.PC pc2 = new Character.PC();
-		Character.PC pc3 = new Character.PC();
+		Character.NPC pc3 = new Character.NPC();
 		
 		samplePC1(pc1);
 		pc1.display();
@@ -59,7 +59,7 @@ public class DPRCalc {
 	}
 	
 	//Set values of a PlayerCharacter to a sample set, used for testing
-	private static void samplePC3(Character.PC sPC3) {
+	private static void samplePC3(Character.NPC sPC3) {
 		sPC3.name = "Martin";
 		sPC3.characterClass = "Rogue";
 		sPC3.attackBonus = 14;
