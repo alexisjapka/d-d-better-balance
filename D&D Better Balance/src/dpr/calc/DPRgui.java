@@ -115,11 +115,11 @@ public class DPRgui {
 		lblNewLabel_2_7_1.setBounds(10, 377, 169, 14);
 		frame.getContentPane().add(lblNewLabel_2_7_1);
 		
-		JLabel lblNewLabel_2_7_2 = new JLabel("Extra Crit Attack (y/n)");
+		JLabel lblNewLabel_2_7_2 = new JLabel("Extra Crit Attack (true/false)");
 		lblNewLabel_2_7_2.setBounds(10, 413, 169, 14);
 		frame.getContentPane().add(lblNewLabel_2_7_2);
 		
-		JLabel lblNewLabel_2_7_3 = new JLabel("Improved Critical (y/n)");
+		JLabel lblNewLabel_2_7_3 = new JLabel("Improved Critical (true/false)");
 		lblNewLabel_2_7_3.setBounds(10, 449, 169, 14);
 		frame.getContentPane().add(lblNewLabel_2_7_3);
 		
@@ -248,13 +248,8 @@ public class DPRgui {
 				PC.attacksPerRound = Double.parseDouble(textFieldAtkPerRnd.getText());
 				PC.sneakAvgAttackDmg = Double.parseDouble(textFieldAtkAvgDmg.getText());
 				PC.extraCritDmg = Double.parseDouble(textFieldXtraCritDmg.getText());
-
-				//checking for extra critical attack and improved critical
-				if(textFieldXtraCritAtk.getText() == "y")
-					PC.extraCritAttack = true;
-				
-				if(textFieldImpCrit.getText() == "y")
-					PC.improvedCrit = true;
+				PC.extraCritAttack = Boolean.parseBoolean(textFieldXtraCritAtk.getText());
+				PC.improvedCrit = Boolean.parseBoolean(textFieldImpCrit.getText());
 				
 				//outputs and calculations
 				String nameClass = PC.name + " / " + PC.characterClass;
