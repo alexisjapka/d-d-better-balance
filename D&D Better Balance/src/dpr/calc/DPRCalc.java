@@ -8,76 +8,14 @@ import java.util.Scanner;
 //Contains group DPR methods and calculations
 public class DPRCalc {
 	
-	//Much of this is for testing purposes currently
 	public static void main(String[] args) {
 		
-		Character.PC pc1 = new Character.PC();
-		Character.PC pc2 = new Character.PC();
-		Character.PC pc3 = new Character.PC();
-		Character.PC pc4 = new Character.PC();
-		Character.NPC npc1 = new Character.NPC();
-		
-		samplePC1(pc1);
-		pc1.display();
-		System.out.println();
-		
-		samplePC2(pc2);
-		pc2.display();
-		System.out.println();
-		
-		samplePC3(pc3);
-		pc3.display();
-		System.out.println();
-		
-		samplePC4(pc4);
-		pc4.display();
-		System.out.println();
-		
-		sampleNPC1(npc1);
-		npc1.display();
-		System.out.println();
-		
-		ArrayList<Character.PC> PCG = new ArrayList<Character.PC>();
-		ArrayList<Character.NPC> NPCG = new ArrayList<Character.NPC>();
-		
-		PCG.add(pc1);
-		PCG.add(pc2);
-		PCG.add(pc3);
-		PCG.add(pc4);
-		NPCG.add(npc1);
-		NPCG.add(npc1);
-		NPCG.add(npc1);
-		NPCG.add(npc1);
-		NPCG.add(npc1);
-		
-		for(int i = 0; i < PCG.size(); i++){
-			System.out.println(PCG.get(i).name);
-		}
-		
-		System.out.println();
+		//DPRgui.main(args);
+		//testThis();
+		//GroupDPRgui.main();
+		//choiceWindow.main(args);
+		GroupDRPgui.main(args);
 
-		for(int i = 0; i < NPCG.size(); i++){
-			System.out.println(NPCG.get(i).name);
-		}
-		
-		System.out.println();
-		System.out.println("Party Stock GDPR is: " + gdprPC(PCG));
-		System.out.println("Monster Stock GDPR is: " + gdprNPC(NPCG));
-		System.out.println("Party Average AC is: " + avgACPC(PCG));
-		System.out.println("Monster Average AC is: " + avgACNPC(NPCG));
-		
-		System.out.println();
-		System.out.println(victory(PCG, NPCG));
-		
-		System.out.println();
-		System.out.println("Rounds PC: " + hpNPC(NPCG)/gdprPC(PCG));
-		System.out.println("Rounds NPC: " + hpPC(PCG)/gdprNPC(NPCG));
-		
-		System.out.println();
-		System.out.println("Party Adjusted GDPR is: " + gdprPC(PCG));
-		System.out.println("Monster Adjusted GDPR is: " + gdprNPC(NPCG));
-		System.out.println("Party Adjusted Target AC: " + PCG.get(0).targetArmorClass);
-		System.out.println("Monster Adjusted Target AC: " + NPCG.get(0).targetArmorClass);
 		
 	}
 	
@@ -126,7 +64,7 @@ public class DPRCalc {
 	public static double gdprPC(ArrayList<Character.PC> g) {
 		double dam = 0;
 		for(int i = 0; i < g.size(); i++){
-			dam = dam + g.get(i).HP;
+			dam = dam + g.get(i).DPR();
 		}
 		double roundedDam = Math.round(dam*100.0)/100.0;
 		return roundedDam;
@@ -245,5 +183,77 @@ public class DPRCalc {
 		sNPC.extraCritDmg = 0;
 		sNPC.extraCritAttack = false;
 		sNPC.improvedCrit = false;
+	}
+	
+	//Testing purposes
+	private static void testThis() {
+		Character.PC pc1 = new Character.PC();
+		Character.PC pc2 = new Character.PC();
+		Character.PC pc3 = new Character.PC();
+		Character.PC pc4 = new Character.PC();
+		Character.NPC npc1 = new Character.NPC();
+		
+		samplePC1(pc1);
+		pc1.display();
+		System.out.println();
+		
+		samplePC2(pc2);
+		pc2.display();
+		System.out.println();
+		
+		samplePC3(pc3);
+		pc3.display();
+		System.out.println();
+		
+		samplePC4(pc4);
+		pc4.display();
+		System.out.println();
+		
+		sampleNPC1(npc1);
+		npc1.display();
+		System.out.println();
+		
+		ArrayList<Character.PC> PCG = new ArrayList<Character.PC>();
+		ArrayList<Character.NPC> NPCG = new ArrayList<Character.NPC>();
+		
+		PCG.add(pc1);
+		PCG.add(pc2);
+		PCG.add(pc3);
+		PCG.add(pc4);
+		NPCG.add(npc1);
+		NPCG.add(npc1);
+		NPCG.add(npc1);
+		NPCG.add(npc1);
+		NPCG.add(npc1);
+		
+		for(int i = 0; i < PCG.size(); i++){
+			System.out.println(PCG.get(i).name);
+		}
+		
+		System.out.println();
+
+		for(int i = 0; i < NPCG.size(); i++){
+			System.out.println(NPCG.get(i).name);
+		}
+		
+		System.out.println();
+		System.out.println("Party Stock GDPR is: " + gdprPC(PCG));
+		System.out.println("Monster Stock GDPR is: " + gdprNPC(NPCG));
+		System.out.println("Party Average AC is: " + avgACPC(PCG));
+		System.out.println("Monster Average AC is: " + avgACNPC(NPCG));
+		
+		System.out.println();
+		System.out.println(victory(PCG, NPCG));
+		
+		System.out.println();
+		System.out.println("Rounds PC: " + hpNPC(NPCG)/gdprPC(PCG));
+		System.out.println("Rounds NPC: " + hpPC(PCG)/gdprNPC(NPCG));
+		
+		System.out.println();
+		System.out.println("Party Adjusted GDPR is: " + gdprPC(PCG));
+		System.out.println("Monster Adjusted GDPR is: " + gdprNPC(NPCG));
+		System.out.println("Party Adjusted Target AC: " + PCG.get(0).targetArmorClass);
+		System.out.println("Monster Adjusted Target AC: " + NPCG.get(0).targetArmorClass);
+		
 	}
 }
