@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 
 public class GroupDRPgui {
 
-	private JFrame frame;
+	private JFrame frmGroupDprCalculator;
 	private JTextField groupDPR;
 	private JTextField pc1DPR;
 	private JTextField pc2DPR;
@@ -71,7 +71,7 @@ public class GroupDRPgui {
 			public void run() {
 				try {
 					GroupDRPgui window = new GroupDRPgui();
-					window.frame.setVisible(true);
+					window.frmGroupDprCalculator.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -90,14 +90,15 @@ public class GroupDRPgui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 528, 453);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmGroupDprCalculator = new JFrame();
+		frmGroupDprCalculator.setTitle("Group DPR Calculator");
+		frmGroupDprCalculator.setBounds(100, 100, 528, 453);
+		frmGroupDprCalculator.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmGroupDprCalculator.getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 11, 366, 388);
-		frame.getContentPane().add(tabbedPane);
+		frmGroupDprCalculator.getContentPane().add(tabbedPane);
 		
 		JPanel pcTab1 = new JPanel();
 		pcTab1.setToolTipText("");
@@ -480,56 +481,61 @@ public class GroupDRPgui {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(358, 11, 179, 28);
-		frame.getContentPane().add(lblNewLabel);
+		frmGroupDprCalculator.getContentPane().add(lblNewLabel);
 		
 		groupDPR = new JTextField();
+		groupDPR.setHorizontalAlignment(SwingConstants.CENTER);
 		groupDPR.setBounds(404, 50, 86, 20);
-		frame.getContentPane().add(groupDPR);
+		frmGroupDprCalculator.getContentPane().add(groupDPR);
 		groupDPR.setColumns(10);
 		
 		JLabel lblPcDpr = new JLabel("PC 1 DPR");
 		lblPcDpr.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPcDpr.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPcDpr.setBounds(358, 81, 179, 28);
-		frame.getContentPane().add(lblPcDpr);
+		frmGroupDprCalculator.getContentPane().add(lblPcDpr);
 		
 		pc1DPR = new JTextField();
+		pc1DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc1DPR.setColumns(10);
 		pc1DPR.setBounds(404, 120, 86, 20);
-		frame.getContentPane().add(pc1DPR);
+		frmGroupDprCalculator.getContentPane().add(pc1DPR);
 		
 		JLabel lblPcDpr_1 = new JLabel("PC 2 DPR");
 		lblPcDpr_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPcDpr_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPcDpr_1.setBounds(358, 151, 179, 28);
-		frame.getContentPane().add(lblPcDpr_1);
+		frmGroupDprCalculator.getContentPane().add(lblPcDpr_1);
 		
 		pc2DPR = new JTextField();
+		pc2DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc2DPR.setColumns(10);
 		pc2DPR.setBounds(404, 190, 86, 20);
-		frame.getContentPane().add(pc2DPR);
+		frmGroupDprCalculator.getContentPane().add(pc2DPR);
 		
 		JLabel lblPcDpr_2 = new JLabel("PC 3 DPR");
 		lblPcDpr_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPcDpr_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPcDpr_2.setBounds(358, 221, 179, 28);
-		frame.getContentPane().add(lblPcDpr_2);
+		frmGroupDprCalculator.getContentPane().add(lblPcDpr_2);
 		
 		pc3DPR = new JTextField();
+		pc3DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc3DPR.setColumns(10);
 		pc3DPR.setBounds(404, 260, 86, 20);
-		frame.getContentPane().add(pc3DPR);
+		frmGroupDprCalculator.getContentPane().add(pc3DPR);
 		
 		JLabel lblPcDpr_3 = new JLabel("PC 4 DPR");
 		lblPcDpr_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPcDpr_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPcDpr_3.setBounds(358, 291, 179, 28);
-		frame.getContentPane().add(lblPcDpr_3);
+		frmGroupDprCalculator.getContentPane().add(lblPcDpr_3);
 		
 		pc4DPR = new JTextField();
+		pc4DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc4DPR.setColumns(10);
 		pc4DPR.setBounds(404, 330, 86, 20);
-		frame.getContentPane().add(pc4DPR);
+		frmGroupDprCalculator.getContentPane().add(pc4DPR);
 		
 		pc1XCrit.setText("false");
 		pc1ImpCrit.setText("false");
@@ -544,87 +550,170 @@ public class GroupDRPgui {
 		calculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//setting up the PCs with input values
+				//reset
+				pc1DPR.setText("");
+				pc2DPR.setText("");
+				pc3DPR.setText("");
+				pc4DPR.setText("");
+				groupDPR.setText("");
+				
 				Character.PC PC1 = new Character.PC();
-				PC1.name = pc1Name.getText();
-				//PC1.characterClass = pc1Class.getText();
-				//PC1.armorClass = Double.parseDouble(pc1AC.getText());
-				PC1.targetArmorClass = Double.parseDouble(pc1TAC.getText());
-				PC1.attackBonus = Double.parseDouble(pc1atkBonus.getText());
-				PC1.avgDiceDmg = Double.parseDouble(pc1dmg.getText());
-				PC1.dmgModifier = Double.parseDouble(pc1Mod.getText());
-				PC1.attacksPerRound = Double.parseDouble(pc1AtkNum.getText());
-				PC1.sneakAvgAttackDmg = Double.parseDouble(pc1Sneak.getText());
-				PC1.extraCritDmg = Double.parseDouble(pc1CritDmg.getText());
-				PC1.extraCritAttack = Boolean.parseBoolean(pc1XCrit.getText());
-				PC1.improvedCrit = Boolean.parseBoolean(pc1ImpCrit.getText());
-				
 				Character.PC PC2 = new Character.PC();
-				PC2.name = pc2Name.getText();
-				//PC2.characterClass = pc2Class.getText();
-				//PC2.armorClass = Double.parseDouble(pc2AC.getText());
-				PC2.targetArmorClass = Double.parseDouble(pc2TAC.getText());
-				PC2.attackBonus = Double.parseDouble(pc2AtkBonus.getText());
-				PC2.avgDiceDmg = Double.parseDouble(pc2Dmg.getText());
-				PC2.dmgModifier = Double.parseDouble(pc2DmgMod.getText());
-				PC2.attacksPerRound = Double.parseDouble(pc2Num.getText());
-				PC2.sneakAvgAttackDmg = Double.parseDouble(pc2Sneak.getText());
-				PC2.extraCritDmg = Double.parseDouble(pc2CritDmg.getText());
-				PC2.extraCritAttack = Boolean.parseBoolean(pc2XCrit.getText());
-				PC2.improvedCrit = Boolean.parseBoolean(pc2ImpCrit.getText());
-				
 				Character.PC PC3 = new Character.PC();
-				PC3.name = pc3Name.getText();
-				//PC3.characterClass = pc3Class.getText();
-				//PC3.armorClass = Double.parseDouble(pc3AC.getText());
-				PC3.targetArmorClass = Double.parseDouble(pc3TAC.getText());
-				PC3.attackBonus = Double.parseDouble(pc3AtkBonus.getText());
-				PC3.avgDiceDmg = Double.parseDouble(pc3Dmg.getText());
-				PC3.dmgModifier = Double.parseDouble(pc3DmgMod.getText());
-				PC3.attacksPerRound = Double.parseDouble(pc3Num.getText());
-				PC3.sneakAvgAttackDmg = Double.parseDouble(pc3Sneak.getText());
-				PC3.extraCritDmg = Double.parseDouble(pc3CritDmg.getText());
-				PC3.extraCritAttack = Boolean.parseBoolean(pc3XCrit.getText());
-				PC3.improvedCrit = Boolean.parseBoolean(pc3ImpCrit.getText());
-				
 				Character.PC PC4 = new Character.PC();
-				PC4.name = pc4Name.getText();
-				//PC4.characterClass = pc4Class.getText();
-				//PC4.armorClass = Double.parseDouble(pc4AC.getText());
-				PC4.targetArmorClass = Double.parseDouble(pc4TAC.getText());
-				PC4.attackBonus = Double.parseDouble(pc4AtkBonus.getText());
-				PC4.avgDiceDmg = Double.parseDouble(pc4Dmg.getText());
-				PC4.dmgModifier = Double.parseDouble(pc4DmgMod.getText());
-				PC4.attacksPerRound = Double.parseDouble(pc4Num.getText());
-				PC4.sneakAvgAttackDmg = Double.parseDouble(pc4Sneak.getText());
-				PC4.extraCritDmg = Double.parseDouble(pc4CritDmg.getText());
-				PC4.extraCritAttack = Boolean.parseBoolean(pc4XCrit.getText());
-				PC4.improvedCrit = Boolean.parseBoolean(pc4ImpCrit.getText());
 				
-				String dpr1 = String.valueOf(PC1.DPR());
-				pc1DPR.setText(dpr1);
+				int errorCheckPC1 = 0;
+				int errorCheckPC2 = 0;
+				int errorCheckPC3 = 0;
+				int errorCheckPC4 = 0;
 				
-				String dpr2 = String.valueOf(PC2.DPR());
-				pc2DPR.setText(dpr2);
-				
-				String dpr3 = String.valueOf(PC3.DPR());
-				pc3DPR.setText(dpr3);
-				
-				String dpr4 = String.valueOf(PC4.DPR());
-				pc4DPR.setText(dpr4);
-				
+				//create PC group
 				ArrayList<Character.PC> PCG = new ArrayList<Character.PC>();
-				PCG.add(PC1);
-				PCG.add(PC2);
-				PCG.add(PC3);
-				PCG.add(PC4);
 				
+				//checking for empty values
+				//characters without a name will not get added to the group
+				int cap = 50;
+				
+				if(pc1Name.getText().equals("") == true) errorCheckPC1 = cap;
+				if(DPRCalc.isNumeric(pc1TAC.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isNumeric(pc1atkBonus.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isNumeric(pc1dmg.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isNumeric(pc1Mod.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isNumeric(pc1AtkNum.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isNumeric(pc1Sneak.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isNumeric(pc1CritDmg.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isBoolean(pc1XCrit.getText()) != true) errorCheckPC1++;
+				if(DPRCalc.isBoolean(pc1ImpCrit.getText()) != true) errorCheckPC1++;
+			
+				if(pc2Name.getText().equals("") == true) errorCheckPC2 = cap;
+				if(DPRCalc.isNumeric(pc2TAC.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isNumeric(pc2AtkBonus.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isNumeric(pc2Dmg.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isNumeric(pc2DmgMod.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isNumeric(pc2Num.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isNumeric(pc2Sneak.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isNumeric(pc2CritDmg.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isBoolean(pc2XCrit.getText()) != true) errorCheckPC2++;
+				if(DPRCalc.isBoolean(pc2ImpCrit.getText()) != true) errorCheckPC2++;
+				
+				if(pc3Name.getText().equals("") == true) errorCheckPC3 = cap;
+				if(DPRCalc.isNumeric(pc3TAC.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isNumeric(pc3AtkBonus.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isNumeric(pc3Dmg.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isNumeric(pc3DmgMod.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isNumeric(pc3Num.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isNumeric(pc3Sneak.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isNumeric(pc3CritDmg.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isBoolean(pc3XCrit.getText()) != true) errorCheckPC3++;
+				if(DPRCalc.isBoolean(pc3ImpCrit.getText()) != true) errorCheckPC3++;
+				
+				if(pc4Name.getText().equals("") == true) errorCheckPC4 = cap;
+				if(DPRCalc.isNumeric(pc4TAC.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isNumeric(pc4AtkBonus.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isNumeric(pc4Dmg.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isNumeric(pc4DmgMod.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isNumeric(pc4Num.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isNumeric(pc4Sneak.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isNumeric(pc4CritDmg.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isBoolean(pc4XCrit.getText()) != true) errorCheckPC4++;
+				if(DPRCalc.isBoolean(pc4ImpCrit.getText()) != true) errorCheckPC4++;
+				
+				//If errorCheck is > 0, characters will not be created
+				//If errorCheck is >= 50 due to no name, characters will not be added to the group
+				if(errorCheckPC1 >= cap) {
+					pc1DPR.setText("-");
+				}
+				else if(errorCheckPC1 > 0) {
+					pc1DPR.setText(errorCheckPC1+" Error(s)");
+				}
+				else {
+					PC1.name = pc1Name.getText();
+					PC1.targetArmorClass = Double.parseDouble(pc1TAC.getText());
+					PC1.attackBonus = Double.parseDouble(pc1atkBonus.getText());
+					PC1.avgDiceDmg = Double.parseDouble(pc1dmg.getText());
+					PC1.dmgModifier = Double.parseDouble(pc1Mod.getText());
+					PC1.attacksPerRound = Double.parseDouble(pc1AtkNum.getText());
+					PC1.sneakAvgAttackDmg = Double.parseDouble(pc1Sneak.getText());
+					PC1.extraCritDmg = Double.parseDouble(pc1CritDmg.getText());
+					PC1.extraCritAttack = Boolean.parseBoolean(pc1XCrit.getText());
+					PC1.improvedCrit = Boolean.parseBoolean(pc1ImpCrit.getText());
+					String dpr1 = String.valueOf(PC1.DPR());
+					pc1DPR.setText(dpr1);
+					PCG.add(PC1);
+				}
+				
+				if(errorCheckPC2 >= cap) {
+					pc2DPR.setText("-");
+				}
+				else if(errorCheckPC2 > 0) {
+					pc2DPR.setText(errorCheckPC2+" Error(s)");
+				}
+				else {
+					PC2.name = pc2Name.getText();
+					PC2.targetArmorClass = Double.parseDouble(pc2TAC.getText());
+					PC2.attackBonus = Double.parseDouble(pc2AtkBonus.getText());
+					PC2.avgDiceDmg = Double.parseDouble(pc2Dmg.getText());
+					PC2.dmgModifier = Double.parseDouble(pc2DmgMod.getText());
+					PC2.attacksPerRound = Double.parseDouble(pc2Num.getText());
+					PC2.sneakAvgAttackDmg = Double.parseDouble(pc2Sneak.getText());
+					PC2.extraCritDmg = Double.parseDouble(pc2CritDmg.getText());
+					PC2.extraCritAttack = Boolean.parseBoolean(pc2XCrit.getText());
+					PC2.improvedCrit = Boolean.parseBoolean(pc2ImpCrit.getText());
+					String dpr2 = String.valueOf(PC2.DPR());
+					pc2DPR.setText(dpr2);
+					PCG.add(PC2);
+				}
+				
+				if(errorCheckPC3 >= cap) {
+					pc3DPR.setText("-");
+				}
+				else if(errorCheckPC3 > 0) {
+					pc3DPR.setText(errorCheckPC3+" Error(s)");
+				}
+				else {
+					PC3.name = pc3Name.getText();
+					PC3.targetArmorClass = Double.parseDouble(pc3TAC.getText());
+					PC3.attackBonus = Double.parseDouble(pc3AtkBonus.getText());
+					PC3.avgDiceDmg = Double.parseDouble(pc3Dmg.getText());
+					PC3.dmgModifier = Double.parseDouble(pc3DmgMod.getText());
+					PC3.attacksPerRound = Double.parseDouble(pc3Num.getText());
+					PC3.sneakAvgAttackDmg = Double.parseDouble(pc3Sneak.getText());
+					PC3.extraCritDmg = Double.parseDouble(pc3CritDmg.getText());
+					PC3.extraCritAttack = Boolean.parseBoolean(pc3XCrit.getText());
+					PC3.improvedCrit = Boolean.parseBoolean(pc3ImpCrit.getText());
+					String dpr3 = String.valueOf(PC3.DPR());
+					pc3DPR.setText(dpr3);
+					PCG.add(PC3);
+				}
+				
+				if(errorCheckPC4 >= cap) {
+					pc4DPR.setText("-");
+				}
+				else if(errorCheckPC4 > 0) {
+					pc4DPR.setText(errorCheckPC4+" Error(s)");
+				}
+				else {
+					PC4.name = pc4Name.getText();
+					PC4.targetArmorClass = Double.parseDouble(pc4TAC.getText());
+					PC4.attackBonus = Double.parseDouble(pc4AtkBonus.getText());
+					PC4.avgDiceDmg = Double.parseDouble(pc4Dmg.getText());
+					PC4.dmgModifier = Double.parseDouble(pc4DmgMod.getText());
+					PC4.attacksPerRound = Double.parseDouble(pc4Num.getText());
+					PC4.sneakAvgAttackDmg = Double.parseDouble(pc4Sneak.getText());
+					PC4.extraCritDmg = Double.parseDouble(pc4CritDmg.getText());
+					PC4.extraCritAttack = Boolean.parseBoolean(pc4XCrit.getText());
+					PC4.improvedCrit = Boolean.parseBoolean(pc4ImpCrit.getText());
+					String dpr4 = String.valueOf(PC4.DPR());
+					pc4DPR.setText(dpr4);
+					PCG.add(PC4);
+				}
+					
 				String gdpr = String.valueOf(DPRCalc.gdprPC(PCG));
 				groupDPR.setText(gdpr);
 				
 			}
 		});
 		calculate.setBounds(404, 376, 89, 23);
-		frame.getContentPane().add(calculate);
+		frmGroupDprCalculator.getContentPane().add(calculate);
 	}
 }

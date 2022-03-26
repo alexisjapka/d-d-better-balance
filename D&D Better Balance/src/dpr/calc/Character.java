@@ -1,20 +1,16 @@
 package dpr.calc;
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
 public final class Character {
 	
 	public static final class PC {
 		
-		public String name = "Player Character";	//character name for reference
-		public String characterClass = "Fighter";	//character class for reference
-		public double attackBonus = 0;				//modifier to hit
+		public String name = "";					//character name for reference
+		public String characterClass = "";			//character class for reference
+		public double attackBonus = 1;				//modifier to hit
 		public double armorClass = 10;				//armor class of character
 		public double targetArmorClass = 10;		//armor class of target that is being hit
-		public double avgDiceDmg = 0;				//average value of the damage dice without modifiers
-		public double dmgModifier = 0;				//modifier to each damage roll
+		public double avgDiceDmg = 1;				//average value of the damage dice without modifiers
+		public double dmgModifier = 1;				//modifier to each damage roll
 		public double attacksPerRound = 1;			//attacks per round
 		public double sneakAvgAttackDmg = 0;		//optional sneak attack
 		public double extraCritDmg = 0;				//optional extra crit damage

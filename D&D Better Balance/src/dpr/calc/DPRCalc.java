@@ -1,27 +1,45 @@
 package dpr.calc;
 
 import java.util.*;
-import java.lang.*;
-import java.io.*;
-import java.util.Scanner;
 
 //Contains group DPR methods and calculations
 public class DPRCalc {
 	
 	public static void main(String[] args) {
 		
-		//DPRgui.main(args);
 		//testThis();
-		//GroupDPRgui.main();
 		//choiceWindow.main(args);
-		GroupDRPgui.main(args);
-
-		
+	}
+	
+	//Numeric check
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
+	
+	//Boolean check
+	public static boolean isBoolean(String str) {
+	    if (str.equals("false")) {
+	        return true;
+	    }
+	    else if(str.equals("true")) {
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
 	}
 	
 	//Victory prediction
 	public static String victory(ArrayList<Character.PC> pc, ArrayList<Character.NPC> npc) {
-		String result = "Players Win";
+		String result = "Players";
 		
 		for(int i = 0; i < pc.size(); i++){
 			pc.get(i).targetArmorClass = avgACNPC(npc);
@@ -35,8 +53,35 @@ public class DPRCalc {
 		double roundsPC = hpNPC(npc)/gdprPC(pc);
 		double roundsNPC = hpPC(pc)/gdprNPC(npc);
 		
+		//benefit of doubt is given to the PCs
 		if (roundsNPC < roundsPC)
-			result = "Monsters Win";
+			result = "Monsters";
+		
+		return result;
+	}
+	
+	//Number of rounds fought
+	public static int rounds(ArrayList<Character.PC> pc, ArrayList<Character.NPC> npc) {
+		double rounds = 0;
+		
+		for(int i = 0; i < pc.size(); i++){
+			pc.get(i).targetArmorClass = avgACNPC(npc);
+		}
+		
+		for(int i = 0; i < npc.size(); i++){
+			npc.get(i).targetArmorClass = avgACPC(pc);
+		}
+		
+		double roundsPC = hpNPC(npc)/gdprPC(pc);
+		double roundsNPC = hpPC(pc)/gdprNPC(npc);
+		
+		//benefit of doubt is given to the PCs
+		if (roundsNPC < roundsPC)
+			rounds = roundsNPC;
+		else
+			rounds = roundsPC;
+		
+		int result = (int)Math.round(rounds);
 		
 		return result;
 	}
@@ -100,7 +145,7 @@ public class DPRCalc {
 		return roundedAC;
 	}
 	
-	//Set values of a Character to a sample set, used for testing
+	//all below methods are for testing purposes
 	private static void samplePC1(Character.PC sPC) {
 		sPC.name = "John Doe";
 		sPC.characterClass = "Fighter";
@@ -248,6 +293,7 @@ public class DPRCalc {
 		System.out.println();
 		System.out.println("Rounds PC: " + hpNPC(NPCG)/gdprPC(PCG));
 		System.out.println("Rounds NPC: " + hpPC(PCG)/gdprNPC(NPCG));
+		System.out.println(rounds(PCG, NPCG));
 		
 		System.out.println();
 		System.out.println("Party Adjusted GDPR is: " + gdprPC(PCG));
