@@ -47,7 +47,7 @@ public class choiceWindow {
 	private void initialize() {
 		frmWelcome = new JFrame();
 		frmWelcome.setTitle("Welcome");
-		frmWelcome.setBounds(100, 100, 335, 290);
+		frmWelcome.setBounds(100, 100, 335, 323);
 		frmWelcome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWelcome.getContentPane().setLayout(null);
 		
@@ -57,12 +57,12 @@ public class choiceWindow {
 		lblNewLabel.setBounds(10, 11, 287, 44);
 		frmWelcome.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("What would you like to calculate?");
+		JLabel lblNewLabel_1 = new JLabel("What would you like to do?");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(20, 66, 277, 14);
 		frmWelcome.getContentPane().add(lblNewLabel_1);
 		
-		JButton one = new JButton("Individual DPR");
+		JButton one = new JButton("Individual DPR Calculator");
 		one.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DPRgui.main(null);
@@ -71,7 +71,7 @@ public class choiceWindow {
 		one.setBounds(20, 106, 277, 23);
 		frmWelcome.getContentPane().add(one);
 		
-		JButton group = new JButton("Group DPR");
+		JButton group = new JButton("Group DPR Calculator");
 		group.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GroupDRPgui.main(null);
@@ -83,19 +83,28 @@ public class choiceWindow {
 		JButton victory = new JButton("Combat Encounter Victory Prediction");
 		victory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				VictoryPrediction.main(null);
 			}
 		});
 		victory.setBounds(20, 208, 277, 23);
 		frmWelcome.getContentPane().add(victory);
 		
-		JButton btnNewButton = new JButton("DPR Character Comparison");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton compare = new JButton("DPR Character Comparison");
+		compare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				comparegui.main(null);
 			}
 		});
-		btnNewButton.setBounds(20, 174, 277, 23);
-		frmWelcome.getContentPane().add(btnNewButton);
+		compare.setBounds(20, 174, 277, 23);
+		frmWelcome.getContentPane().add(compare);
+		
+		JButton btnEncounterCreator = new JButton("Encounter Creator");
+		btnEncounterCreator.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EncounterGUI.main(null);
+			}
+		});
+		btnEncounterCreator.setBounds(20, 242, 277, 23);
+		frmWelcome.getContentPane().add(btnEncounterCreator);
 	}
 }

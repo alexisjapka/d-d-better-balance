@@ -96,8 +96,8 @@ public final class Character {
 	
 	public static final class NPC {
 		
-		public String name = "Non-Player Character";	//character name for reference
-		public String characterClass = "Fighter";	//character class for reference
+		public String name = "";					//character name for reference
+		public String characterClass = "";			//character class for reference
 		public double attackBonus = 0;				//modifier to hit
 		public double armorClass = 10;				//armor class of character
 		public double targetArmorClass = 10;		//armor class of target that is being hit
