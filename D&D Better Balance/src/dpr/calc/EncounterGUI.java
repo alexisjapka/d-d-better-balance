@@ -20,11 +20,11 @@ import java.awt.event.ActionEvent;
 public class EncounterGUI {
 
 	private JFrame frmEncounterCalculator;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField pc1;
+	private JTextField pc2;
+	private JTextField pc3;
+	private JTextField pc4;
+	private JTextField num;
 
 	/**
 	 * Launch the application.
@@ -94,25 +94,25 @@ public class EncounterGUI {
 		lblPc_2.setBounds(35, 159, 36, 22);
 		frmEncounterCalculator.getContentPane().add(lblPc_2);
 		
-		textField = new JTextField();
-		textField.setBounds(101, 62, 56, 20);
-		frmEncounterCalculator.getContentPane().add(textField);
-		textField.setColumns(10);
+		pc1 = new JTextField();
+		pc1.setBounds(101, 62, 56, 20);
+		frmEncounterCalculator.getContentPane().add(pc1);
+		pc1.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(101, 95, 56, 20);
-		frmEncounterCalculator.getContentPane().add(textField_1);
+		pc2 = new JTextField();
+		pc2.setColumns(10);
+		pc2.setBounds(101, 95, 56, 20);
+		frmEncounterCalculator.getContentPane().add(pc2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(101, 128, 56, 20);
-		frmEncounterCalculator.getContentPane().add(textField_2);
+		pc3 = new JTextField();
+		pc3.setColumns(10);
+		pc3.setBounds(101, 128, 56, 20);
+		frmEncounterCalculator.getContentPane().add(pc3);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(101, 161, 56, 20);
-		frmEncounterCalculator.getContentPane().add(textField_3);
+		pc4 = new JTextField();
+		pc4.setColumns(10);
+		pc4.setBounds(101, 161, 56, 20);
+		frmEncounterCalculator.getContentPane().add(pc4);
 		
 		JToggleButton tglbtnNewToggleButton = new JToggleButton("Easy");
 		tglbtnNewToggleButton.addChangeListener(new ChangeListener() {
@@ -140,10 +140,10 @@ public class EncounterGUI {
 		lblPc_2_1_1.setBounds(200, 117, 122, 22);
 		frmEncounterCalculator.getContentPane().add(lblPc_2_1_1);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(234, 147, 56, 20);
-		frmEncounterCalculator.getContentPane().add(textField_4);
+		num = new JTextField();
+		num.setColumns(10);
+		num.setBounds(234, 147, 56, 20);
+		frmEncounterCalculator.getContentPane().add(num);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -160,6 +160,35 @@ public class EncounterGUI {
 		JButton calculate = new JButton("Calculate");
 		calculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int mult = 0;
+				int pcl1 = 0;
+				int pcl2 = 0;
+				int pcl3 = 0;
+				int pcl4 = 0;
+				boolean dif = true;
+				
+				if(EncounterCalc.isInt(pc1.getText()) == true) pcl1 = Integer.parseInt(pc1.getText());
+				if(EncounterCalc.isInt(pc2.getText()) == true) pcl2 = Integer.parseInt(pc2.getText());
+				if(EncounterCalc.isInt(pc3.getText()) == true) pcl3 = Integer.parseInt(pc3.getText());
+				if(EncounterCalc.isInt(pc4.getText()) == true) pcl4 = Integer.parseInt(pc4.getText());
+				if(EncounterCalc.isInt(num.getText()) == true) mult = Integer.parseInt(num.getText());
+				
+				 if (tglbtnNewToggleButton.isSelected())  
+					 dif = false; //hard 
+			        else  
+			        	dif = true;  //easy
+				 
+				 String output = "";
+				 
+				 if(dif) {
+					 output = EncounterCalc.recommendEasy(pcl1, pcl2, pcl3, pcl4, mult);
+				 }
+				 else {
+					 output = EncounterCalc.recommendHard(pcl1, pcl2, pcl3, pcl4, mult);
+				 }
+				 
+				 result.setText("CR " + output);
+				
 			}
 		});
 		calculate.setBounds(10, 7, 110, 24);
