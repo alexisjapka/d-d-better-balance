@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
+import javax.swing.JToggleButton;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class DPRgui {
 
@@ -26,8 +29,6 @@ public class DPRgui {
 	private JTextField textFieldAtkPerRnd;
 	private JTextField textFieldAtkAvgDmg;
 	private JTextField textFieldXtraCritDmg;
-	private JTextField textFieldXtraCritAtk;
-	private JTextField textFieldImpCrit;
 	private JTextField textFieldNameOutput;
 	private JTextField textFieldChanceHit;
 	private JTextField textFieldChanceAdv;
@@ -119,11 +120,11 @@ public class DPRgui {
 		lblNewLabel_2_7_1.setBounds(34, 378, 169, 14);
 		frmIndividualDprCalculator.getContentPane().add(lblNewLabel_2_7_1);
 		
-		JLabel lblNewLabel_2_7_2 = new JLabel("Extra Crit Attack (true/false)");
+		JLabel lblNewLabel_2_7_2 = new JLabel("Extra Crit Attack");
 		lblNewLabel_2_7_2.setBounds(34, 414, 169, 14);
 		frmIndividualDprCalculator.getContentPane().add(lblNewLabel_2_7_2);
 		
-		JLabel lblNewLabel_2_7_3 = new JLabel("Improved Critical (true/false)");
+		JLabel lblNewLabel_2_7_3 = new JLabel("Improved Critical");
 		lblNewLabel_2_7_3.setBounds(34, 450, 169, 14);
 		frmIndividualDprCalculator.getContentPane().add(lblNewLabel_2_7_3);
 		
@@ -180,20 +181,6 @@ public class DPRgui {
 		textFieldXtraCritDmg.setColumns(10);
 		textFieldXtraCritDmg.setBounds(228, 375, 131, 20);
 		frmIndividualDprCalculator.getContentPane().add(textFieldXtraCritDmg);
-		
-		//Extra crit attack input
-		textFieldXtraCritAtk = new JTextField();
-		textFieldXtraCritAtk.setColumns(10);
-		textFieldXtraCritAtk.setBounds(228, 411, 131, 20);
-		frmIndividualDprCalculator.getContentPane().add(textFieldXtraCritAtk);
-		textFieldXtraCritAtk.setText("false");
-		
-		//Improved critical input
-		textFieldImpCrit = new JTextField();
-		textFieldImpCrit.setColumns(10);
-		textFieldImpCrit.setBounds(228, 447, 131, 20);
-		frmIndividualDprCalculator.getContentPane().add(textFieldImpCrit);
-		textFieldImpCrit.setText("false");
 
 		//Attack bonus input
 		textFieldAtkBonus = new JTextField();
@@ -242,6 +229,30 @@ public class DPRgui {
 		textFieldDPR.setBounds(583, 167, 131, 20);
 		frmIndividualDprCalculator.getContentPane().add(textFieldDPR);
 		
+		JToggleButton xCritButton = new JToggleButton("False");
+		xCritButton.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (xCritButton.isSelected())  
+					xCritButton.setText("True");  
+			        else  
+			        	xCritButton.setText("False"); 
+			}
+		});
+		xCritButton.setBounds(228, 410, 131, 23);
+		frmIndividualDprCalculator.getContentPane().add(xCritButton);
+		
+		JToggleButton impCritButton = new JToggleButton("False");
+		impCritButton.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (impCritButton.isSelected())  
+					impCritButton.setText("True");  
+			        else  
+			        	impCritButton.setText("False"); 
+			}
+		});
+		impCritButton.setBounds(228, 446, 131, 23);
+		frmIndividualDprCalculator.getContentPane().add(impCritButton);
+		
 		//calculate DPR
 		JButton btnCalculate = new JButton("Calculate");
 		btnCalculate.addActionListener(new ActionListener() {
@@ -264,8 +275,6 @@ public class DPRgui {
 				if(DPRCalc.isNumeric(textFieldAtkPerRnd.getText()) != true) errorCheck++;
 				if(DPRCalc.isNumeric(textFieldAtkAvgDmg.getText()) != true) errorCheck++;
 				if(DPRCalc.isNumeric(textFieldXtraCritDmg.getText()) != true) errorCheck++;
-				if(DPRCalc.isBoolean(textFieldXtraCritAtk.getText()) != true) errorCheck++;
-				if(DPRCalc.isBoolean(textFieldImpCrit.getText()) != true) errorCheck++;
 				
 				//setting up the PlayerCharacter with input values if no errors
 				if(errorCheck <= 0) {
@@ -281,8 +290,8 @@ public class DPRgui {
 					PC.attacksPerRound = Double.parseDouble(textFieldAtkPerRnd.getText());
 					PC.sneakAvgAttackDmg = Double.parseDouble(textFieldAtkAvgDmg.getText());
 					PC.extraCritDmg = Double.parseDouble(textFieldXtraCritDmg.getText());
-					PC.extraCritAttack = Boolean.parseBoolean(textFieldXtraCritAtk.getText());
-					PC.improvedCrit = Boolean.parseBoolean(textFieldImpCrit.getText());
+					PC.improvedCrit = impCritButton.isSelected();
+					PC.extraCritAttack = xCritButton.isSelected();
 					
 					//outputs and calculations
 					String nameClass = PC.name + " / " + PC.characterClass;
@@ -318,6 +327,8 @@ public class DPRgui {
 		JLabel lblNewLabel_2_1_1 = new JLabel("Health");
 		lblNewLabel_2_1_1.setBounds(34, 110, 169, 14);
 		frmIndividualDprCalculator.getContentPane().add(lblNewLabel_2_1_1);
+		
+
 
 	}
 }

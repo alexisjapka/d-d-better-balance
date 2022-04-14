@@ -66,32 +66,6 @@ public final class Character {
 			return roundedChance;
 		}
 		
-		//output the value of each variable
-		public void display() {
-			if(improvedCrit == true)
-				critChance = 0.1;
-			else
-				critChance = 0.05;
-			
-			System.out.println("Character Name = " + name);
-			System.out.println("Class = " + characterClass);
-			System.out.println("Health = " + HP);
-			System.out.println("Attack Bonus = " + attackBonus);
-			System.out.println("Armor Class (AC) = " + armorClass);
-			System.out.println("Target Armor Class (AC) = " + targetArmorClass);
-			System.out.println("Average Dice Damage = " + avgDiceDmg);
-			System.out.println("Damage Modifer = " + dmgModifier);
-			System.out.println("Number of Attacks per Round = " + attacksPerRound);
-			System.out.println("Sneak Attack Average Damage = " + sneakAvgAttackDmg);
-			System.out.println("Extra Damage on Critical Hit = " + extraCritDmg);
-			System.out.println("Improved Critical (true/false) = " + improvedCrit);
-			System.out.println("Chance of Critical Hit = " + critChance);
-			System.out.println("Chance to Hit: "+chanceToHit()+"%");
-			System.out.println("Chance to Hit with Advantage: "+advantageChanceToHit()+"%");
-			System.out.println("Damage Per Round: "+DPR());
-			
-		}
-		
 	}
 	
 	public static final class NPC {
@@ -157,33 +131,6 @@ public final class Character {
 			double roundedChance = Math.round(chance*100.0)/100.0;
 			return roundedChance;
 		}
-		
-		//output the value of each variable
-		public void display() {
-			if(improvedCrit == true)
-				critChance = 0.1;
-			else
-				critChance = 0.05;
-			
-			System.out.println("Character Name = " + name);
-			System.out.println("Class = " + characterClass);
-			System.out.println("Health = " + HP);
-			System.out.println("Attack Bonus = " + attackBonus);
-			System.out.println("Armor Class (AC) = " + armorClass);
-			System.out.println("Target Armor Class (AC) = " + targetArmorClass);
-			System.out.println("Average Dice Damage = " + avgDiceDmg);
-			System.out.println("Damage Modifer = " + dmgModifier);
-			System.out.println("Number of Attacks per Round = " + attacksPerRound);
-			System.out.println("Sneak Attack Average Damage = " + sneakAvgAttackDmg);
-			System.out.println("Extra Damage on Critical Hit = " + extraCritDmg);
-			System.out.println("Improved Critical (true/false) = " + improvedCrit);
-			System.out.println("Chance of Critical Hit = " + critChance);
-			System.out.println("Chance to Hit: "+chanceToHit()+"%");
-			System.out.println("Chance to Hit with Advantage: "+advantageChanceToHit()+"%");
-			System.out.println("Damage Per Round: "+DPR());
-			
-		}
-		
 	}
 
 }

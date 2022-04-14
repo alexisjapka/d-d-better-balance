@@ -8,14 +8,6 @@ public class EncounterCalc {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(xpEasy(2));
-		System.out.println(xpHard(7));
-		System.out.println(crNPC(1000));
-		
-		System.out.println(multiplier(1));
-		System.out.println(recommendEasy(5, 5, 5, 0, 2));
-		System.out.println(recommendHard(5, 5, 5, 5, 2));
-		
 	}
 	
 	public static boolean isInt(String strNum) {

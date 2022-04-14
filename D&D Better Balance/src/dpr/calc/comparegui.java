@@ -13,6 +13,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JToggleButton;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class comparegui {
 
@@ -29,10 +32,6 @@ public class comparegui {
 	private JTextField pc1AtkNum;
 	private JTextField pc1Sneak;
 	private JTextField pc1CritDmg;
-	private JTextField pc1XCrit;
-	private JTextField pc1ImpCrit;
-	private JTextField pc2ImpCrit;
-	private JTextField pc2XCrit;
 	private JTextField pc2CritDmg;
 	private JTextField pc2Sneak;
 	private JTextField pc2Num;
@@ -41,8 +40,6 @@ public class comparegui {
 	private JTextField pc2AtkBonus;
 	private JTextField pc2TAC;
 	private JTextField pc2Name;
-	private JTextField pc3ImpCrit;
-	private JTextField pc3XCrit;
 	private JTextField pc3CritDmg;
 	private JTextField pc3Sneak;
 	private JTextField pc3Num;
@@ -51,8 +48,6 @@ public class comparegui {
 	private JTextField pc3AtkBonus;
 	private JTextField pc3TAC;
 	private JTextField pc3Name;
-	private JTextField pc4ImpCrit;
-	private JTextField pc4XCrit;
 	private JTextField pc4CritDmg;
 	private JTextField pc4Sneak;
 	private JTextField pc4Num;
@@ -176,23 +171,13 @@ public class comparegui {
 		pc1CritDmg.setBounds(204, 247, 131, 20);
 		pcTab1.add(pc1CritDmg);
 		
-		JLabel lblNewLabel_2_7_2 = new JLabel("Extra Crit Attack (true/false)");
+		JLabel lblNewLabel_2_7_2 = new JLabel("Extra Crit Attack");
 		lblNewLabel_2_7_2.setBounds(10, 286, 169, 14);
 		pcTab1.add(lblNewLabel_2_7_2);
 		
-		pc1XCrit = new JTextField();
-		pc1XCrit.setColumns(10);
-		pc1XCrit.setBounds(204, 283, 131, 20);
-		pcTab1.add(pc1XCrit);
-		
-		JLabel lblNewLabel_2_7_3 = new JLabel("Improved Critical (true/false)");
+		JLabel lblNewLabel_2_7_3 = new JLabel("Improved Critical");
 		lblNewLabel_2_7_3.setBounds(10, 322, 169, 14);
 		pcTab1.add(lblNewLabel_2_7_3);
-		
-		pc1ImpCrit = new JTextField();
-		pc1ImpCrit.setColumns(10);
-		pc1ImpCrit.setBounds(204, 319, 131, 20);
-		pcTab1.add(pc1ImpCrit);
 		
 		JPanel pcTab2 = new JPanel();
 		tabbedPane.addTab("PC 2", null, pcTab2, null);
@@ -230,23 +215,13 @@ public class comparegui {
 		lblNewLabel_2_7_1_1.setBounds(10, 250, 169, 14);
 		pcTab2.add(lblNewLabel_2_7_1_1);
 		
-		JLabel lblNewLabel_2_7_2_1 = new JLabel("Extra Crit Attack (true/false)");
+		JLabel lblNewLabel_2_7_2_1 = new JLabel("Extra Crit Attack");
 		lblNewLabel_2_7_2_1.setBounds(10, 286, 169, 14);
 		pcTab2.add(lblNewLabel_2_7_2_1);
 		
-		JLabel lblNewLabel_2_7_3_1 = new JLabel("Improved Critical (true/false)");
+		JLabel lblNewLabel_2_7_3_1 = new JLabel("Improved Critical");
 		lblNewLabel_2_7_3_1.setBounds(10, 322, 169, 14);
 		pcTab2.add(lblNewLabel_2_7_3_1);
-		
-		pc2ImpCrit = new JTextField();
-		pc2ImpCrit.setColumns(10);
-		pc2ImpCrit.setBounds(204, 319, 131, 20);
-		pcTab2.add(pc2ImpCrit);
-		
-		pc2XCrit = new JTextField();
-		pc2XCrit.setColumns(10);
-		pc2XCrit.setBounds(204, 283, 131, 20);
-		pcTab2.add(pc2XCrit);
 		
 		pc2CritDmg = new JTextField();
 		pc2CritDmg.setColumns(10);
@@ -324,23 +299,13 @@ public class comparegui {
 		lblNewLabel_2_7_1_2.setBounds(10, 250, 169, 14);
 		pcTab3.add(lblNewLabel_2_7_1_2);
 		
-		JLabel lblNewLabel_2_7_2_2 = new JLabel("Extra Crit Attack (true/false)");
+		JLabel lblNewLabel_2_7_2_2 = new JLabel("Extra Crit Attack");
 		lblNewLabel_2_7_2_2.setBounds(10, 286, 169, 14);
 		pcTab3.add(lblNewLabel_2_7_2_2);
 		
-		JLabel lblNewLabel_2_7_3_2 = new JLabel("Improved Critical (true/false)");
+		JLabel lblNewLabel_2_7_3_2 = new JLabel("Improved Critical");
 		lblNewLabel_2_7_3_2.setBounds(10, 322, 169, 14);
 		pcTab3.add(lblNewLabel_2_7_3_2);
-		
-		pc3ImpCrit = new JTextField();
-		pc3ImpCrit.setColumns(10);
-		pc3ImpCrit.setBounds(204, 319, 131, 20);
-		pcTab3.add(pc3ImpCrit);
-		
-		pc3XCrit = new JTextField();
-		pc3XCrit.setColumns(10);
-		pc3XCrit.setBounds(204, 283, 131, 20);
-		pcTab3.add(pc3XCrit);
 		
 		pc3CritDmg = new JTextField();
 		pc3CritDmg.setColumns(10);
@@ -418,23 +383,13 @@ public class comparegui {
 		lblNewLabel_2_7_1_3.setBounds(10, 250, 169, 14);
 		pcTab4.add(lblNewLabel_2_7_1_3);
 		
-		JLabel lblNewLabel_2_7_2_3 = new JLabel("Extra Crit Attack (true/false)");
+		JLabel lblNewLabel_2_7_2_3 = new JLabel("Extra Crit Attack");
 		lblNewLabel_2_7_2_3.setBounds(10, 286, 169, 14);
 		pcTab4.add(lblNewLabel_2_7_2_3);
 		
-		JLabel lblNewLabel_2_7_3_3 = new JLabel("Improved Critical (true/false)");
+		JLabel lblNewLabel_2_7_3_3 = new JLabel("Improved Critical");
 		lblNewLabel_2_7_3_3.setBounds(10, 322, 169, 14);
 		pcTab4.add(lblNewLabel_2_7_3_3);
-		
-		pc4ImpCrit = new JTextField();
-		pc4ImpCrit.setColumns(10);
-		pc4ImpCrit.setBounds(204, 319, 131, 20);
-		pcTab4.add(pc4ImpCrit);
-		
-		pc4XCrit = new JTextField();
-		pc4XCrit.setColumns(10);
-		pc4XCrit.setBounds(204, 283, 131, 20);
-		pcTab4.add(pc4XCrit);
 		
 		pc4CritDmg = new JTextField();
 		pc4CritDmg.setColumns(10);
@@ -483,6 +438,7 @@ public class comparegui {
 		frmDprCharacterComparison.getContentPane().add(lblPcDpr);
 		
 		pc1DPR = new JTextField();
+		pc1DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc1DPR.setColumns(10);
 		pc1DPR.setBounds(404, 84, 86, 20);
 		frmDprCharacterComparison.getContentPane().add(pc1DPR);
@@ -494,6 +450,7 @@ public class comparegui {
 		frmDprCharacterComparison.getContentPane().add(lblPcDpr_1);
 		
 		pc2DPR = new JTextField();
+		pc2DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc2DPR.setColumns(10);
 		pc2DPR.setBounds(404, 154, 86, 20);
 		frmDprCharacterComparison.getContentPane().add(pc2DPR);
@@ -505,6 +462,7 @@ public class comparegui {
 		frmDprCharacterComparison.getContentPane().add(lblPcDpr_2);
 		
 		pc3DPR = new JTextField();
+		pc3DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc3DPR.setColumns(10);
 		pc3DPR.setBounds(404, 224, 86, 20);
 		frmDprCharacterComparison.getContentPane().add(pc3DPR);
@@ -516,18 +474,106 @@ public class comparegui {
 		frmDprCharacterComparison.getContentPane().add(lblPcDpr_3);
 		
 		pc4DPR = new JTextField();
+		pc4DPR.setHorizontalAlignment(SwingConstants.CENTER);
 		pc4DPR.setColumns(10);
 		pc4DPR.setBounds(404, 294, 86, 20);
 		frmDprCharacterComparison.getContentPane().add(pc4DPR);
 		
-		pc1XCrit.setText("false");
-		pc1ImpCrit.setText("false");
-		pc2XCrit.setText("false");
-		pc2ImpCrit.setText("false");
-		pc3XCrit.setText("false");
-		pc3ImpCrit.setText("false");
-		pc4XCrit.setText("false");
-		pc4ImpCrit.setText("false");
+		JToggleButton pc1XB = new JToggleButton("False");
+		pc1XB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc1XB.isSelected())  
+					pc1XB.setText("True");  
+			        else  
+			        	pc1XB.setText("False"); 
+			}
+		});
+		pc1XB.setBounds(204, 282, 131, 23);
+		pcTab1.add(pc1XB);
+		
+		JToggleButton pc1IB = new JToggleButton("False");
+		pc1IB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc1IB.isSelected())  
+					pc1IB.setText("True");  
+			        else  
+			        	pc1IB.setText("False"); 
+			}
+		});
+		pc1IB.setBounds(204, 318, 131, 23);
+		pcTab1.add(pc1IB);
+		
+		JToggleButton pc2IB = new JToggleButton("False");
+		pc2IB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc2IB.isSelected())  
+					pc2IB.setText("True");  
+			        else  
+			        	pc2IB.setText("False"); 
+			}
+		});
+		pc2IB.setBounds(204, 318, 131, 23);
+		pcTab2.add(pc2IB);
+		
+		JToggleButton pc2XB = new JToggleButton("False");
+		pc2XB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc2XB.isSelected())  
+					pc2XB.setText("True");  
+			        else  
+			        	pc2XB.setText("False"); 
+			}
+		});
+		pc2XB.setBounds(204, 282, 131, 23);
+		pcTab2.add(pc2XB);
+		
+		JToggleButton pc3IB = new JToggleButton("False");
+		pc3IB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc3IB.isSelected())  
+					pc3IB.setText("True");  
+			        else  
+			        	pc3IB.setText("False"); 
+			}
+		});
+		pc3IB.setBounds(204, 318, 131, 23);
+		pcTab3.add(pc3IB);
+		
+		JToggleButton pc3XB = new JToggleButton("False");
+		pc3XB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc3XB.isSelected())  
+					pc3XB.setText("True");  
+			        else  
+			        	pc3XB.setText("False"); 
+			}
+		});
+		pc3XB.setBounds(204, 282, 131, 23);
+		pcTab3.add(pc3XB);
+		
+		JToggleButton pc4IB = new JToggleButton("False");
+		pc4IB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc4IB.isSelected())  
+					pc4IB.setText("True");  
+			        else  
+			        	pc4IB.setText("False"); 
+			}
+		});
+		pc4IB.setBounds(204, 318, 131, 23);
+		pcTab4.add(pc4IB);
+		
+		JToggleButton pc4XB = new JToggleButton("False");
+		pc4XB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if (pc4XB.isSelected())  
+					pc4XB.setText("True");  
+			        else  
+			        	pc4XB.setText("False"); 
+			}
+		});
+		pc4XB.setBounds(204, 282, 131, 23);
+		pcTab4.add(pc4XB);
 		
 		JButton calculate = new JButton("Calculate");
 		calculate.addActionListener(new ActionListener() {
@@ -561,8 +607,6 @@ public class comparegui {
 				if(DPRCalc.isNumeric(pc1AtkNum.getText()) != true) errorCheckPC1++;
 				if(DPRCalc.isNumeric(pc1Sneak.getText()) != true) errorCheckPC1++;
 				if(DPRCalc.isNumeric(pc1CritDmg.getText()) != true) errorCheckPC1++;
-				if(DPRCalc.isBoolean(pc1XCrit.getText()) != true) errorCheckPC1++;
-				if(DPRCalc.isBoolean(pc1ImpCrit.getText()) != true) errorCheckPC1++;
 			
 				if(pc2Name.getText().equals("") == true) errorCheckPC2 = cap;
 				if(DPRCalc.isNumeric(pc2TAC.getText()) != true) errorCheckPC2++;
@@ -572,8 +616,6 @@ public class comparegui {
 				if(DPRCalc.isNumeric(pc2Num.getText()) != true) errorCheckPC2++;
 				if(DPRCalc.isNumeric(pc2Sneak.getText()) != true) errorCheckPC2++;
 				if(DPRCalc.isNumeric(pc2CritDmg.getText()) != true) errorCheckPC2++;
-				if(DPRCalc.isBoolean(pc2XCrit.getText()) != true) errorCheckPC2++;
-				if(DPRCalc.isBoolean(pc2ImpCrit.getText()) != true) errorCheckPC2++;
 				
 				if(pc3Name.getText().equals("") == true) errorCheckPC3 = cap;
 				if(DPRCalc.isNumeric(pc3TAC.getText()) != true) errorCheckPC3++;
@@ -583,8 +625,6 @@ public class comparegui {
 				if(DPRCalc.isNumeric(pc3Num.getText()) != true) errorCheckPC3++;
 				if(DPRCalc.isNumeric(pc3Sneak.getText()) != true) errorCheckPC3++;
 				if(DPRCalc.isNumeric(pc3CritDmg.getText()) != true) errorCheckPC3++;
-				if(DPRCalc.isBoolean(pc3XCrit.getText()) != true) errorCheckPC3++;
-				if(DPRCalc.isBoolean(pc3ImpCrit.getText()) != true) errorCheckPC3++;
 				
 				if(pc4Name.getText().equals("") == true) errorCheckPC4 = cap;
 				if(DPRCalc.isNumeric(pc4TAC.getText()) != true) errorCheckPC4++;
@@ -594,8 +634,6 @@ public class comparegui {
 				if(DPRCalc.isNumeric(pc4Num.getText()) != true) errorCheckPC4++;
 				if(DPRCalc.isNumeric(pc4Sneak.getText()) != true) errorCheckPC4++;
 				if(DPRCalc.isNumeric(pc4CritDmg.getText()) != true) errorCheckPC4++;
-				if(DPRCalc.isBoolean(pc4XCrit.getText()) != true) errorCheckPC4++;
-				if(DPRCalc.isBoolean(pc4ImpCrit.getText()) != true) errorCheckPC4++;
 				
 				//If errorCheck is > 0, characters will not be created
 				//If errorCheck is >= 50 due to no name, characters will not be added to the group
@@ -614,8 +652,8 @@ public class comparegui {
 					PC1.attacksPerRound = Double.parseDouble(pc1AtkNum.getText());
 					PC1.sneakAvgAttackDmg = Double.parseDouble(pc1Sneak.getText());
 					PC1.extraCritDmg = Double.parseDouble(pc1CritDmg.getText());
-					PC1.extraCritAttack = Boolean.parseBoolean(pc1XCrit.getText());
-					PC1.improvedCrit = Boolean.parseBoolean(pc1ImpCrit.getText());
+					PC1.extraCritAttack = pc1XB.isSelected();
+					PC1.improvedCrit = pc1IB.isSelected();
 					String dpr1 = String.valueOf(PC1.DPR());
 					pc1DPR.setText(dpr1);
 				}
@@ -635,8 +673,8 @@ public class comparegui {
 					PC2.attacksPerRound = Double.parseDouble(pc2Num.getText());
 					PC2.sneakAvgAttackDmg = Double.parseDouble(pc2Sneak.getText());
 					PC2.extraCritDmg = Double.parseDouble(pc2CritDmg.getText());
-					PC2.extraCritAttack = Boolean.parseBoolean(pc2XCrit.getText());
-					PC2.improvedCrit = Boolean.parseBoolean(pc2ImpCrit.getText());
+					PC2.extraCritAttack = pc2XB.isSelected();
+					PC2.improvedCrit = pc2IB.isSelected();
 					String dpr2 = String.valueOf(PC2.DPR());
 					pc2DPR.setText(dpr2);
 				}
@@ -656,8 +694,8 @@ public class comparegui {
 					PC3.attacksPerRound = Double.parseDouble(pc3Num.getText());
 					PC3.sneakAvgAttackDmg = Double.parseDouble(pc3Sneak.getText());
 					PC3.extraCritDmg = Double.parseDouble(pc3CritDmg.getText());
-					PC3.extraCritAttack = Boolean.parseBoolean(pc3XCrit.getText());
-					PC3.improvedCrit = Boolean.parseBoolean(pc3ImpCrit.getText());
+					PC3.extraCritAttack = pc3XB.isSelected();
+					PC3.improvedCrit = pc3IB.isSelected();
 					String dpr3 = String.valueOf(PC3.DPR());
 					pc3DPR.setText(dpr3);
 				}
@@ -677,8 +715,8 @@ public class comparegui {
 					PC4.attacksPerRound = Double.parseDouble(pc4Num.getText());
 					PC4.sneakAvgAttackDmg = Double.parseDouble(pc4Sneak.getText());
 					PC4.extraCritDmg = Double.parseDouble(pc4CritDmg.getText());
-					PC4.extraCritAttack = Boolean.parseBoolean(pc4XCrit.getText());
-					PC4.improvedCrit = Boolean.parseBoolean(pc4ImpCrit.getText());
+					PC4.extraCritAttack = pc4XB.isSelected();
+					PC4.improvedCrit = pc4IB.isSelected();
 					String dpr4 = String.valueOf(PC4.DPR());
 					pc4DPR.setText(dpr4);
 				}	
