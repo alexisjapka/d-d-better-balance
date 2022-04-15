@@ -1,12 +1,12 @@
 package dpr.calc;
 
 import java.util.*;
+import dpr.calc.Character;
 
 //Contains group DPR methods and calculations
 public class DPRCalc {
 	
 	public static void main(String[] args) {
-		
 	}
 	
 	//Numeric check

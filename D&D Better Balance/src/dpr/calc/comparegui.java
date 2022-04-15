@@ -86,7 +86,7 @@ public class comparegui {
 	private void initialize() {
 		frmDprCharacterComparison = new JFrame();
 		frmDprCharacterComparison.setTitle("DPR Character Comparison");
-		frmDprCharacterComparison.setBounds(100, 100, 528, 453);
+		frmDprCharacterComparison.setBounds(100, 100, 528, 450);
 		frmDprCharacterComparison.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmDprCharacterComparison.getContentPane().setLayout(null);
 		
@@ -479,97 +479,97 @@ public class comparegui {
 		pc4DPR.setBounds(404, 294, 86, 20);
 		frmDprCharacterComparison.getContentPane().add(pc4DPR);
 		
-		JToggleButton pc1XB = new JToggleButton("False");
+		JToggleButton pc1XB = new JToggleButton("No");
 		pc1XB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc1XB.isSelected())  
-					pc1XB.setText("True");  
+					pc1XB.setText("Yes");  
 			        else  
-			        	pc1XB.setText("False"); 
+			        	pc1XB.setText("No"); 
 			}
 		});
 		pc1XB.setBounds(204, 282, 131, 23);
 		pcTab1.add(pc1XB);
 		
-		JToggleButton pc1IB = new JToggleButton("False");
+		JToggleButton pc1IB = new JToggleButton("No");
 		pc1IB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc1IB.isSelected())  
-					pc1IB.setText("True");  
+					pc1IB.setText("Yes");  
 			        else  
-			        	pc1IB.setText("False"); 
+			        	pc1IB.setText("No"); 
 			}
 		});
 		pc1IB.setBounds(204, 318, 131, 23);
 		pcTab1.add(pc1IB);
 		
-		JToggleButton pc2IB = new JToggleButton("False");
+		JToggleButton pc2IB = new JToggleButton("No");
 		pc2IB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc2IB.isSelected())  
-					pc2IB.setText("True");  
+					pc2IB.setText("Yes");  
 			        else  
-			        	pc2IB.setText("False"); 
+			        	pc2IB.setText("No"); 
 			}
 		});
 		pc2IB.setBounds(204, 318, 131, 23);
 		pcTab2.add(pc2IB);
 		
-		JToggleButton pc2XB = new JToggleButton("False");
+		JToggleButton pc2XB = new JToggleButton("No");
 		pc2XB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc2XB.isSelected())  
-					pc2XB.setText("True");  
+					pc2XB.setText("Yes");  
 			        else  
-			        	pc2XB.setText("False"); 
+			        	pc2XB.setText("No"); 
 			}
 		});
 		pc2XB.setBounds(204, 282, 131, 23);
 		pcTab2.add(pc2XB);
 		
-		JToggleButton pc3IB = new JToggleButton("False");
+		JToggleButton pc3IB = new JToggleButton("No");
 		pc3IB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc3IB.isSelected())  
-					pc3IB.setText("True");  
+					pc3IB.setText("Yes");  
 			        else  
-			        	pc3IB.setText("False"); 
+			        	pc3IB.setText("No"); 
 			}
 		});
 		pc3IB.setBounds(204, 318, 131, 23);
 		pcTab3.add(pc3IB);
 		
-		JToggleButton pc3XB = new JToggleButton("False");
+		JToggleButton pc3XB = new JToggleButton("No");
 		pc3XB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc3XB.isSelected())  
-					pc3XB.setText("True");  
+					pc3XB.setText("Yes");  
 			        else  
-			        	pc3XB.setText("False"); 
+			        	pc3XB.setText("No"); 
 			}
 		});
 		pc3XB.setBounds(204, 282, 131, 23);
 		pcTab3.add(pc3XB);
 		
-		JToggleButton pc4IB = new JToggleButton("False");
+		JToggleButton pc4IB = new JToggleButton("No");
 		pc4IB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc4IB.isSelected())  
-					pc4IB.setText("True");  
+					pc4IB.setText("Yes");  
 			        else  
-			        	pc4IB.setText("False"); 
+			        	pc4IB.setText("No"); 
 			}
 		});
 		pc4IB.setBounds(204, 318, 131, 23);
 		pcTab4.add(pc4IB);
 		
-		JToggleButton pc4XB = new JToggleButton("False");
+		JToggleButton pc4XB = new JToggleButton("No");
 		pc4XB.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (pc4XB.isSelected())  
-					pc4XB.setText("True");  
+					pc4XB.setText("Yes");  
 			        else  
-			        	pc4XB.setText("False"); 
+			        	pc4XB.setText("No"); 
 			}
 		});
 		pc4XB.setBounds(204, 282, 131, 23);
@@ -722,7 +722,7 @@ public class comparegui {
 				}	
 			}
 		});
-		calculate.setBounds(404, 340, 89, 23);
+		calculate.setBounds(386, 340, 116, 42);
 		frmDprCharacterComparison.getContentPane().add(calculate);
 	}
 }

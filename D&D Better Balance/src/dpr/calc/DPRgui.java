@@ -229,25 +229,25 @@ public class DPRgui {
 		textFieldDPR.setBounds(583, 167, 131, 20);
 		frmIndividualDprCalculator.getContentPane().add(textFieldDPR);
 		
-		JToggleButton xCritButton = new JToggleButton("False");
+		JToggleButton xCritButton = new JToggleButton("No");
 		xCritButton.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (xCritButton.isSelected())  
-					xCritButton.setText("True");  
+					xCritButton.setText("Yes");  
 			        else  
-			        	xCritButton.setText("False"); 
+			        	xCritButton.setText("No"); 
 			}
 		});
 		xCritButton.setBounds(228, 410, 131, 23);
 		frmIndividualDprCalculator.getContentPane().add(xCritButton);
 		
-		JToggleButton impCritButton = new JToggleButton("False");
+		JToggleButton impCritButton = new JToggleButton("No");
 		impCritButton.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if (impCritButton.isSelected())  
-					impCritButton.setText("True");  
+					impCritButton.setText("Yes");  
 			        else  
-			        	impCritButton.setText("False"); 
+			        	impCritButton.setText("No"); 
 			}
 		});
 		impCritButton.setBounds(228, 446, 131, 23);
