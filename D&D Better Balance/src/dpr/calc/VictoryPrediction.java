@@ -1279,13 +1279,13 @@ public class VictoryPrediction {
 					}
 				}
 					
+				winner.setText(DPRCalc.victory(PCG, NPCG));
 				String gdpr = String.valueOf(DPRCalc.gdprPC(PCG));
 				String ngdpr = String.valueOf(DPRCalc.gdprNPC(NPCG));
 				String roundsResult = String.valueOf(DPRCalc.rounds(PCG, NPCG));
 				groupDPR.setText(gdpr);
 				npcDPR.setText(ngdpr);
 				rounds.setText(roundsResult);
-				winner.setText(DPRCalc.victory(PCG, NPCG));
 				
 			}
 		});

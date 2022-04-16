@@ -7,6 +7,7 @@ import dpr.calc.Character;
 public class DPRCalc {
 	
 	public static void main(String[] args) {
+		
 	}
 	
 	//Numeric check
